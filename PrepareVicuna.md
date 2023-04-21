@@ -23,7 +23,7 @@ pip install git+https://github.com/lm-sys/FastChat.git@v0.1.10
 Then, run the following command to create the final working weight
 
 ```
-python -m fastchat.model.apply_delta --base /path/to/llama-13b-hf/  --target /path/to/save/working/vicuna/weight/  --delta /path/to/vicuna-13b-delta-v0/
+python -m fastchat.model.apply_delta --base /home/weiran/Project/GPT/MiniGPT-4/llama-13b/  --target /home/weiran/Project/GPT/MiniGPT-4/vicuna_weights/  --delta /home/weiran/Project/GPT/MiniGPT-4/vicuna-13b-delta-v0/
 ```
 
 Now you are good to go!

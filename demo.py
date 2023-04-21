@@ -98,6 +98,7 @@ def gradio_answer(chatbot, chat_state, img_list, num_beams, temperature):
                               temperature=temperature,
                               max_new_tokens=300,
                               max_length=2000)[0]
+    # llm_message = llm_message.replace("<s>", "") # handle <s>
     chatbot[-1][1] = llm_message
     return chatbot, chat_state, img_list
 
@@ -111,7 +112,7 @@ article = """<p><a href='https://minigpt-4.github.io'><img src='https://img.shie
 with gr.Blocks() as demo:
     gr.Markdown(title)
     gr.Markdown(description)
-    gr.Markdown(article)
+    # gr.Markdown(article)
 
     with gr.Row():
         with gr.Column(scale=0.5):
@@ -150,4 +151,4 @@ with gr.Blocks() as demo:
     )
     clear.click(gradio_reset, [chat_state, img_list], [chatbot, image, text_input, upload_button, chat_state, img_list], queue=False)
 
-demo.launch(share=True, enable_queue=True)
+demo.launch(server_name='0.0.0.0', share=True, enable_queue=True)
